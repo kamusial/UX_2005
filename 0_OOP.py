@@ -25,6 +25,13 @@ class Auto:
         else:
             print('tryb nierozpoznany, brak zmian')
 
-    moje_auto =
+# class BMW(Auto):
+#     init
+
+moje_auto = Auto('bmw', 1997, 'czerwone')
+
+print(moje_auto.spalanie_na_100)
+moje_auto.ustaw_tryb('ecssso')
+print(moje_auto.spalanie_na_100)
 
 
