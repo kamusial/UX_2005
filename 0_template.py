@@ -7,6 +7,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.button import Button
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
+from kivy.uix.floatlayout import FloatLayout
 
 class MyApp(App):
     def build(self):
