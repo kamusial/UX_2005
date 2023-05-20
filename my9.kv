@@ -14,14 +14,17 @@ WindowsManager:
             Label:
                 text: "Password: "
             TextInput:
+                id: passwd
                 multiline: False
         Button:
             text: "slij"
             on_release:
-                app.root.current = "second"
+                app.root.current = "second" if passwd.text == "Python" else "main"
+                root.manager.transition.direction = "left"
 <SecondWindow>:
     name: "second"
     Button:
         text: "wroc"
         on_release:
             app.root.current = "main"
+            root.manager.transition.direction = "up"
