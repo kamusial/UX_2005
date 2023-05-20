@@ -40,9 +40,9 @@ class Touch(Widget):
         print('Mysz w gorze ',touch.pos)
         self.btn.opacity = 1
 
-class My7App(App):
+class My8App(App):
     def build(self):
         return Touch()
 
 if __name__ == '__main__':
-    My7App().run()
+    My8App().run()

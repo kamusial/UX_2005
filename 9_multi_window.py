@@ -12,9 +12,23 @@ from kivy.graphics import Rectangle
 from kivy.graphics import Color
 from kivy.graphics import Line
 
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen
+
+class MainWindow(Screen):
+    pass
+
+class SecondWindow(Screen):
+    pass
+
+class WindowsManager(ScreenManager):
+    pass
+
+kv = Builder.load_file('my9.kv')
+
 class MyApp(App):
     def build(self):
-        return Label(text='Hello')
+        return kv
 
 if __name__ == '__main__':
     MyApp().run()
