@@ -1,0 +1,27 @@
+#Button:
+#    text: "kv9"
+
+WindowsManager:
+    MainWindow:
+    SecondWindow:
+
+<MainWindow>:
+    name: "main"
+    GridLayout:
+        cols:1
+        GridLayout:
+            cols:2
+            Label:
+                text: "Password: "
+            TextInput:
+                multiline: False
+        Button:
+            text: "slij"
+            on_release:
+                app.root.current = "second"
+<SecondWindow>:
+    name: "second"
+    Button:
+        text: "wroc"
+        on_release:
+            app.root.current = "main"
