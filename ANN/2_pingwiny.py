@@ -11,7 +11,7 @@ penguins_features = penguins_filtered.drop(columns=['species'])
 
 target = pd.get_dummies(penguins_filtered['species'])
 print(target)
-X_train, X_test, y_train, y_test = train_test_split(penguins_features, target, test_size=0.2, random_state=True)
+X_train, X_test, y_train, y_test = train_test_split(penguins_features, target, test_size=0.2, random_state=5)
 
 from tensorflow import keras
 from numpy.random import seed
@@ -22,13 +22,15 @@ set_seed(2)
 print(X_train.shape)
 
 inputs = keras.Input(shape=X_train.shape[1])
-hidden_layer = keras.layers.Dense(5, activation="relu")(inputs)
-output_layer = keras.layers.Dense(3, activation="softmax")(hidden_layer)
+hidden_layer1 = keras.layers.Dense(20, activation="relu")(inputs)
+hidden_layer2 = keras.layers.Dense(20, activation="relu")(hidden_layer1)
+hidden_layer3 = keras.layers.Dense(20, activation="relu")(hidden_layer2)
+output_layer = keras.layers.Dense(3, activation="softmax")(hidden_layer3)
 model = keras.Model(inputs=inputs, outputs=output_layer)
 #print(model.summary())
 
 model.compile(optimizer='adam', loss=keras.losses.CategoricalCrossentropy())
-history = model.fit(X_train, y_train, epochs=100)
+history = model.fit(X_train, y_train, epochs=1000)
 sns.lineplot(x=history.epoch, y=history.history['loss'])
 plt.show()
 y_pred = model.predict(X_test)
